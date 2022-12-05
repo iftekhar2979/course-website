@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './Context/ThemeContext';
+import UserContext from './Context/UserContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,8 +12,10 @@ root.render(
     <ThemeProvider>
       <body className='bg-white dark:bg-black transition-all'>
         <main>
-        <div className="absolute w-full right-0 top-0">
-          <App />
+          <div className='absolute w-full right-0 top-0'>
+            <UserContext>
+              <App />
+            </UserContext>
           </div>
         </main>
       </body>
