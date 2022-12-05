@@ -1,16 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Toggle from './toggle/Toggle';
 
 const Navbar = () => {
-  // const user=useContext(AuthContext)
-  // console.log(user);
-    const [isUserProfile,setIsUserProfile]=useState(false)
- 
+  const {user,signOutProfile}=useContext(AuthContext)
+  const handleSignOut=()=>{
+    signOutProfile()
+    .then(()=>{
+      console.log('signOut succesfully');
+
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+    
+  }
   return (
-    // <header className=' container m-auto' >
-    <div className='navbar  shadow-md dark:bg-stone-900 dark:text-base-100' >
+    <div className='navbar shadow-md dark:bg-gray-800 dark:text-base-100 dark:shadow-white' >
       <div className='navbar-start container m-auto '>
         <div className='dropdown'>
           <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -40,30 +47,13 @@ const Navbar = () => {
             <li className='text-emerald-600 font-semibold dark:text-stone-300'>
               <Link to='/'>Coding Home</Link>
             </li>
-            <li tabIndex={0} className='text-emerald-600 font-semibold'>
+            <li tabIndex={0} to='/courses' className='text-emerald-600 font-semibold'>
               <Link className='justify-between text-emerald-600 font-semibold'>
-                Parent
-                <svg
-                  className='fill-current'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                >
-                  <path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' />
-                </svg>
-              </Link>
-              <ul className='p-2 text-emerald-600 font-semibold'>
-                <li className='text-emerald-600 font-semibold'>
-                  <Link to=''>Submenu 1</Link>
-                </li>
-                <li className='text-emerald-600 font-semibold'>
-                  <Link to=''>Submenu 2</Link>
-                </li>
-              </ul>
+              Courses
+              </Link>        
             </li>
             <li className='text-emerald-600 font-semibold'>
-              <Link to=''>Item 3</Link>
+              <Link to='/faq'>FAQ</Link>
             </li>
           </ul>
         </div>
@@ -97,10 +87,10 @@ const Navbar = () => {
       </div>
       <div className='navbar-end mr-4'>
 
-      {isUserProfile?
+      {user?
         <div className='avatar'>
           <div className='w-12 mr-4 rounded-full'>
-            <img src='' />
+            <img src={user.photoURL} alt=''/>
           </div>
         </div>
         :
@@ -109,6 +99,9 @@ const Navbar = () => {
         </div>
         }
         <div>
+          {
+            user?<button className="btn bg-red-300" onClick={handleSignOut}>Sign Out</button>:''
+          }
      <Toggle></Toggle>
       </div>
      

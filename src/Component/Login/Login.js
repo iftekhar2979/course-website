@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 import OthersLogin from './OthersLogin';
 import SectionsLogin from './SectionsLogin';
 
 const Login = () => {
- 
+ const {setUser,signInProfile}=useContext(AuthContext)
   const handleSubmit = (e) => {
     e.preventDefault();
     const form=e.target
     const email=form.email.value
     const password=form.password.value
-    console.log(email,password);
+    signInProfile(email,password)
+    .then(result=>{
+      const user=result.user
+      setUser(user)
+      
+    })
+    .catch(error=>{
+      setUser('')
+      console.log(error);
+    })
+    // console.log(email,password);
   };
   return (
     <section className=' dark:bg-gray-800 dark:text-gray-50'>
@@ -61,7 +72,7 @@ const Login = () => {
             type='submit'
             className=' p-3 text-sm font-bold bg-emerald-500 text-white tracking-wide uppercase rounded  dark:text-base-100'
           >
-            Log In
+            Login
           </button>
           </div>
           

@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/UserContext';
 
 const OthersLogin = () => {
+
+  const {setUser,signInWithGoogle,signWithGithub}=useContext(AuthContext)
+  const handleGoogle=()=>{
+    signInWithGoogle()
+    .then(result=>{
+      const user=result.user
+      setUser(user)
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+  }
+  const handleGithub=()=>{
+    signWithGithub()
+    .then(result=>{
+      const user=result.user
+      setUser(user)
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+
+  }
   return (
     <div>
       <div className='flex justify-center space-x-4'>
-        <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+        <button aria-label='Log in with Google' className='p-3 rounded-sm' onClick={handleGoogle}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 32 32'
@@ -14,7 +38,7 @@ const OthersLogin = () => {
           </svg>
         </button>
         
-        <button aria-label='Log in with GitHub' className='p-3 rounded-sm'>
+        <button aria-label='Log in with GitHub' className='p-3 rounded-sm' onClick={handleGithub}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 32 32'
