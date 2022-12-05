@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { ThemeProvider } from './Context/ThemeContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-
-    <App />
+    <ThemeProvider>
+      <body className='bg-white dark:bg-black transition-all'>
+        <main>
+        <div className="absolute w-full right-0 top-0">
+          <App />
+          </div>
+        </main>
+      </body>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

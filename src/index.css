@@ -1,11 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.light-mode {
-    --font-color: #101212;
-    --body-bg-color: #ffffff;
+
+  /* .dark{
+    color: #cccccc;
+    background-color: #121212;
+   
   }
-  .dark-mode {
-    --font-color: #cccccc;
-    --body-bg-color: #101212;
+  .dark.navbar{
+    background-color: white;
   }
+  .light{
+    background-color: #FCF7F4;
+  } */
