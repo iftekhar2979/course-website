@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Toggle from '../toggle/Toggle';
+import Toggle from './toggle/Toggle';
 
 const Navbar = () => {
     const [isUserProfile,setIsUserProfile]=useState(false)
@@ -32,7 +32,7 @@ const Navbar = () => {
           >
             <li className='text-emerald-600 font-semibold dark:text-stone-300'>
               {' '}
-              <img src='../../../public/favicon.png' alt='' srcset='' />
+              <img src='../../../public/favicon.png' alt=''  />
             </li>
             <li className='text-emerald-600 font-semibold dark:text-stone-300'>
               <Link to='/'>Coding Home</Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
           className='w-8'
           src='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/dev-512.png'
           alt=''
-          srcset=''
+          
         />
         <Link
           to=''
@@ -106,7 +106,6 @@ const Navbar = () => {
         </div>
         }
         <div>
-{/* <div onClick={toggleTheme}>{theme==='dark'?"dark":"white"} */}
      <Toggle></Toggle>
       </div>
      
