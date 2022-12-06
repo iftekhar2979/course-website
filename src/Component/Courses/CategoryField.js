@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
 const CategoryField = () => {
     const [category,setCategory]=useState()
@@ -10,6 +11,8 @@ const CategoryField = () => {
             setCategory(data)
         })
     },[])
+    const categoryspecific=useLoaderData()
+    console.log(categoryspecific);
     
     return (
         <div className="flex flex-col h-full p-3 w-60 dark:bg-gray-600 shadow-xl shadow-purple-800 dark:text-gray-100">
@@ -19,7 +22,7 @@ const CategoryField = () => {
 			<ul className="pt-2 pb-4 space-y-1 text-lg">
                 
 				{
-                    category?.map(item=><SingleCategory key={item.categoryId} data={item.category}/>)
+                    category?.map(item=><SingleCategory key={item.categoryId} data={item}/>)
                 }
 			</ul>
 		</div>

@@ -14,7 +14,7 @@ const SingleCourse = ({data}) => {
       </figure>
       <div className='card-body'>
         <h2 className='card-title'>{courseName}</h2>
-        <p>{isReadMore ? description.slice(0, 150) : description}<span onClick={toggleReadMore} className='text-white text-sm bg-sky-900'>{!isReadMore?'see less':'see more'}</span></p>
+        <p>{isReadMore ? description.slice(0, 150) : description}<span onClick={toggleReadMore} className='text-white text-sm bg-sky-900'>{!isReadMore?'':'see more'}</span></p>
         <div className='card-actions justify-end'>
           <button className='btn btn-primary'>Buy Now</button>
         </div>

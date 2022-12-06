@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import CategoryField from './CategoryField';
 import SingleCourse from './SingleCourse';
 
@@ -18,6 +19,7 @@ const Courses = () => {
 
         <CategoryField></CategoryField>
       </div>
+          <Outlet></Outlet>
       <div className="grid grid-cols-2  mx-10 my-10  w-9/12">
         {
             course?.map(item=>{
@@ -28,6 +30,7 @@ const Courses = () => {
         }
       </div>
     </section>
+    
   );
 };
 
