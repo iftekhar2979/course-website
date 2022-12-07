@@ -4,7 +4,7 @@ import { AuthContext } from '../../Context/UserContext';
 import Toggle from './toggle/Toggle';
 
 const Navbar = () => {
-  const {user,signOutProfile}=useContext(AuthContext)
+  const {user,signOutProfile,setUser}=useContext(AuthContext)
   // const handleSignOut=()=>{
   //   signOutProfile()
   //   .then(()=>{
@@ -14,6 +14,16 @@ const Navbar = () => {
   //   })
     
   // }
+  const handleLogOut=()=>{
+    signOutProfile()
+      .then(()=>{
+        setUser('')
+      })
+      .catch(error=>{
+        console.log(error);
+      })
+     
+  }
   return (
     <div className='navbar shadow-md dark:bg-gray-600 dark:text-base-100 dark:shadow-white' >
       <div className='navbar-start container m-auto '>
@@ -98,7 +108,7 @@ const Navbar = () => {
         }
         <div>
           {
-            user?<div className='block'><button className="btn bg-red-300" onClick={signOutProfile}>Sign Out</button></div>:''
+            user?<div className='block'><button className="btn bg-red-300" onClick={handleLogOut}>Sign Out</button></div>:''
           }
      <Toggle></Toggle>
       </div>

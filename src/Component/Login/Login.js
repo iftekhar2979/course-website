@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import OthersLogin from './OthersLogin';
 import SectionsLogin from './SectionsLogin';
 
 const Login = () => {
  const {setUser,signInProfile}=useContext(AuthContext)
+ const navigate=useNavigate()
+ const location=useLocation()
+ const from=location.state?.from?.pathname || '/'
+ console.log(location);
+ console.log(from);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form=e.target
@@ -15,6 +20,10 @@ const Login = () => {
     .then(result=>{
       const user=result.user
       setUser(user)
+      form.reset()
+      // Navigate('/')
+      navigate(from,{replace:true})
+      
       
     })
     .catch(error=>{
