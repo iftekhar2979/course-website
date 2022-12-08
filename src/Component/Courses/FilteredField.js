@@ -1,19 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { DataProvider } from '../../Context/SearchContext';
 import SingleCourse from './SingleCourse';
 
 const FilteredField = () => {
-    const {filtered,searchContext}=useContext(DataProvider)
-    // console.log(filtered);
+   
     const myLoader=useLoaderData()
-    // console.log(myLoader);
+   
     return (
         <>
         <div>
-            <h2 className='text-4xl font-bold '>{searchContext.toUpperCase()}</h2>
+            <h2 className='text-4xl font-bold '>{myLoader.courseName}</h2>
         </div>
-        <div className='flex'>
+        <div className='flex dark:bg-gray-600'>
             
             {myLoader?.map((item,index)=><SingleCourse key={item.courseId} data={item}></SingleCourse>)}
         </div>

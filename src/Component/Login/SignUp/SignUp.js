@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext';
 import OthersLogin from '../OthersLogin';
 import SectionSignUp from './SectionSignUp';
@@ -19,6 +20,8 @@ const SignUp = () => {
       console.log(user);
       form.reset()
       updateUserProfile({displayName,photoURL})
+      const notify = () => toast.success("succesfully created Account",{position:'top-center',autoClose:2000,});
+      notify()
 
     })
     .catch(error=>{

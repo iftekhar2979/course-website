@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 import OthersLogin from './OthersLogin';
 import SectionsLogin from './SectionsLogin';
@@ -23,7 +24,9 @@ const Login = () => {
       setUser(user)
       form.reset()
       // Navigate('/')
+      const notify = () => toast.success("Logged In",{position:'top-center',autoClose:2000,});
       navigate(from,{replace:true})
+      notify()
       
       
     })

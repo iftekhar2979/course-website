@@ -10,7 +10,6 @@ const CheackOut = () => {
         <div className=" p-4 shadow-md dark:bg-gray-600 dark:text-stone-300">
 	<div className="flex justify-between pb-4 border-bottom">
 		<div className="flex items-center tracking-widest">
-		{/* <p  className="mb-0 capitalize text-4xl font-bold dark:text-stone-300">{user.displayName}</p> */}
 			<p  className="mb-0 capitalize text-4xl font-bold dark:text-stone-300">{courseName}</p>
 		</div>
 		

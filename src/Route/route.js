@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Component/Blog/Blog";
 import CheackOut from "../Component/Courses/CheackOut";
 import Content from "../Component/Courses/Content";
 import Courses from "../Component/Courses/Courses";
 import FilteredField from "../Component/Courses/FilteredField";
+import ErrorElement from '../Component/ErrorElement';
 import Faq from "../Component/Faq/Faq";
 import Home from "../Component/Home/Home";
 import Login from "../Component/Login/Login";
@@ -13,6 +15,7 @@ export const router=createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
+        errorElement:<ErrorElement></ErrorElement>,
         children:[
             {
                 path:'/',
@@ -47,8 +50,12 @@ export const router=createBrowserRouter([
                 element:<PrivateRoute><CheackOut></CheackOut></PrivateRoute>
             },{
                 path:'faq',
-                element:<PrivateRoute><Faq></Faq></PrivateRoute>
+                element:<Faq></Faq>
+            },{
+                path:'blog',
+                element:<Blog></Blog>
             }
         ],
-    }
+    },
+   
 ])

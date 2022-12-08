@@ -11,7 +11,7 @@ const CategoryField = () => {
         })
     },[])   
     return (
-        <div className="flex flex-col h-full p-3 w-60 dark:bg-gray-600 shadow-xl shadow-purple-800 dark:text-gray-100">
+        <div className="flex flex-col h-full p-3 lg:w-60 w-auto dark:bg-gray-600 shadow-sm shadow-purple-800 dark:text-gray-100">
 	<div className="space-y-3">
 		<div className="flex-1">
         <h2 className="text-lg font-semibold tracking-widest uppercase dark:text-stone-300">Course Category</h2>

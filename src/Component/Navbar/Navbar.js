@@ -1,23 +1,24 @@
+import Tippy from '@tippyjs/react';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import 'tippy.js/dist/tippy.css';
 import { AuthContext } from '../../Context/UserContext';
 import Toggle from './toggle/Toggle';
 
 const Navbar = () => {
-  const {user,signOutProfile,setUser}=useContext(AuthContext)
-  const handleLogOut=()=>{
+  const { user, signOutProfile, setUser } = useContext(AuthContext);
+  const handleLogOut = () => {
     signOutProfile()
-      .then(()=>{
-        setUser('')
+      .then(() => {
+        setUser('');
       })
-      .catch(error=>{
+      .catch((error) => {
         console.log(error);
-      })
-     
-  }
+      });
+  };
   return (
-    <div className='navbar shadow-md dark:bg-gray-600 dark:text-base-100 dark:shadow-white' >
-      <div className='navbar-start container m-auto '>
+    <div className='navbar shadow-md dark:bg-gray-600 dark:text-base-100 dark:shadow-white'>
+      <div className='navbar-start  m-auto '>
         <div className='dropdown'>
           <label tabIndex={0} className='btn btn-ghost lg:hidden'>
             <svg
@@ -37,22 +38,32 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className='menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52'
+            className='menu menu-compact dropdown-content bg-gray-400 mt-3 p-2 shadow  rounded-box w-52'
           >
-            <li className='text-emerald-600 font-semibold dark:text-stone-300'>
+            <li className='text-white-300 font-semibold dark:text-stone-300'>
               {' '}
-              <img src='../../../public/favicon.png' alt=''  />
+              <img src='../../../public/favicon.png' alt='' />
             </li>
-            <li className='text-emerald-600 font-semibold dark:text-stone-300'>
+            <li className='text-gray-100 font-semibold dark:text-stone-300'>
               <Link to='/'>Coding Home</Link>
             </li>
-            <li tabIndex={0} to='/courses' className='text-emerald-600 font-semibold'>
-              <Link className='justify-between text-emerald-600 font-semibold'>
-              Courses
-              </Link>        
+            <li
+              tabIndex={0}
+              to='/courses'
+              className=' text-gray-100 font-semibold'
+            >
+              <Link
+                to='/courses'
+                className='justify-between text-emerald-600 font-semibold'
+              >
+                Courses
+              </Link>
             </li>
-            <li className='text-emerald-600 font-semibold'>
+            <li className='text-gray-100 font-semibold'>
               <Link to='/faq'>FAQ</Link>
+            </li>
+            <li className='text-gray-100 font-semibold'>
+              <Link to='/blog'>Blog</Link>
             </li>
           </ul>
         </div>
@@ -60,7 +71,6 @@ const Navbar = () => {
           className='w-8'
           src='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/dev-512.png'
           alt=''
-          
         />
         <Link
           to=''
@@ -80,31 +90,41 @@ const Navbar = () => {
           <li className='text-emerald-600 font-semibold dark:text-stone-300'>
             <Link to='/blog'>Blog</Link>
           </li>
-          <li className='text-emerald-600 font-semibold dark:text-stone-300'>     
-          </li>   
+          <li className='text-emerald-600 font-semibold dark:text-stone-300'></li>
         </ul>
       </div>
       <div className='navbar-end mr-4'>
-
-      {user?
-        <div className='avatar'>
-          <div className='w-12 mr-4 rounded-full'>
-            <img src={user.photoURL} alt=''/>
+        {user ? (
+          <div className='avatar'>
+            <Tippy content={user.displayName}>
+            <div className='w-12 mr-4 rounded-full ' >
+              
+              <img src={user.photoURL} alt='' className="tooltip" data-tip="hello"/>
+            </div>
+            </Tippy>
           </div>
+        ) : (
+          <div>
+            <Link to='/login'>
+              {' '}
+              <button className='btn bg-emerald-600 font-semibold border-none mr-4'>
+                Login
+              </button>
+            </Link>
+          </div>
+        )}
+        <div className='flex'>
+          {user ? (
+            <div className='block'>
+              <button className='btn bg-red-300' onClick={handleLogOut}>
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            ''
+          )}
+          <Toggle></Toggle>
         </div>
-        :
-        <div>
-       <Link to='/login'> <button className="btn bg-emerald-600 font-semibold border-none mr-4">Login</button></Link>
-        </div>
-        }
-        <div>
-          {
-            user?<div className='block'><button className="btn bg-red-300" onClick={handleLogOut}>Sign Out</button></div>:''
-          }
-     <Toggle></Toggle>
-      </div>
-     
-            
       </div>
     </div>
     // </header>

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
-import SearchContext from './Context/SearchContext';
 import { ThemeProvider } from './Context/ThemeContext';
 import UserContext from './Context/UserContext';
 import './index.css';
@@ -16,9 +17,10 @@ root.render(
         <main>
           <div className='absolute w-full right-0 top-0'>
             <UserContext>
-              <SearchContext>
+             
+              <ToastContainer />
               <App />
-              </SearchContext>
+             
             </UserContext>
           </div>
         </main>

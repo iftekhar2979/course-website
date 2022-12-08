@@ -14,8 +14,8 @@ const Home = () => {
                     <span className="hidden md:inline lg:hidden">Write Your first Code by Us
     </span>            </p>
                 <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                    <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Suspendisse</a>
-                    <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">Malesuada</a>
+                    <p   className="font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Suspendisse</p>
+                    <p className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">Malesuada</p>
                 </div>
             </div>
         </div>
