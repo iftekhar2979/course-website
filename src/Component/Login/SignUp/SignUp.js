@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/UserContext';
@@ -7,6 +7,7 @@ import SectionSignUp from './SectionSignUp';
 
 const SignUp = () => {
   const {createAccount,updateUserProfile}=useContext(AuthContext)
+  const [validPassword,setValidPassword]=useState('')
   const handleSubmit = (e) => {
     e.preventDefault();
     const form=e.target
@@ -14,10 +15,10 @@ const SignUp = () => {
     const password=form.password.value
     const displayName=form.name.value
     const photoURL=form.photoUrl.value
+   
     createAccount(email,password)
     .then(result=>{
       const user=result.user
-      console.log(user);
       form.reset()
       updateUserProfile({displayName,photoURL})
       const notify = () => toast.success("succesfully created Account",{position:'top-center',autoClose:2000,});
@@ -25,13 +26,15 @@ const SignUp = () => {
 
     })
     .catch(error=>{
-      console.warn(error)
+      if(error.messege){
+        setValidPassword('Input valid email and password')
+      }
     })
   };
 
     return (
         <section className=' dark:bg-gray-800 dark:text-gray-50'>
-        <div className='grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto  md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100'>
+        <div className='grid max-w-screen-xl sm:grid-cols-1 xsm:grid-cols-1 gap-8 px-8 py-16 mx-auto  grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100'>
          <SectionSignUp></SectionSignUp>
           <form
             htmlFor=''
@@ -85,6 +88,15 @@ const SignUp = () => {
                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
               />
             </div>
+            {
+              validPassword?<div className="alert alert-error shadow-lg">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{validPassword}</span>
+              </div>
+            </div>:
+            ''
+            }
             <div className='w-full flex justify-center'>
               
             <button

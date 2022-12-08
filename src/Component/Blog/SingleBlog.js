@@ -5,7 +5,7 @@ const SingleBlog = ({ data }) => {
   let today = new Date();
   let date =` ${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}` ;
   return (
-    <div className='max-w-sm w-auto mx-auto group hover:no-underline border focus:no-underline dark:bg-gray-900'>
+    <div className='max-w-sm w-auto mx-auto md:w-full sm:w-full group hover:no-underline border focus:no-underline dark:bg-gray-900'>
       <img
         src={image}
         className='object-cover w-full rounded h-44 dark:bg-gray-500'

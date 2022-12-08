@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "codinghome-77b04",
+    "staging": "codinghome-77b04"
+  },
+  "targets": {},
+  "etags": {}
+}
