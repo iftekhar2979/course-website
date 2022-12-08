@@ -1,19 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DataProvider } from '../../Context/SearchContext';
 
 const SingleCourse = ({data}) => {
-  const {category,price,courseName,contact,description,image,courseId}=data
-   const {setSingleContent,setContentId}=useContext(DataProvider)
-   
-  // console.log(data);
+  const {courseName,description,image,courseId}=data
+
   const [isReadMore, setIsReadMore] = useState(true);
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-  const handleShow=(id)=>{
-    console.log(id);
-  }
+ 
   
   
   return (
@@ -25,7 +20,7 @@ const SingleCourse = ({data}) => {
         <h2 className='card-title'>{courseName}</h2>
         <p>{isReadMore ? description.slice(0, 150) : description}<span onClick={toggleReadMore} className='text-white text-sm bg-sky-900'>{!isReadMore?'':'see more'}</span></p>
         <div className='card-actions justify-end'>
-          </div><Link to={`/${courseId}`}><button className='btn btn-primary' onClick={()=>handleShow(courseId)}>Show Details</button></Link>
+          </div><Link to={`/${courseId}`}><button className='btn btn-primary' >Show Details</button></Link>
         </div>
       </div>
    

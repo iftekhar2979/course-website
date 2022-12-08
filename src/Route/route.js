@@ -40,7 +40,7 @@ export const router=createBrowserRouter([
                 },
                 element:<Content></Content>
             },{
-                path:'/:id',
+                path:'/cheackOut/:id',
                 loader:({params})=>{
                     return fetch(`https://coding-home-server-iftekhar2979.vercel.app/course/${params.id}`)
                 },

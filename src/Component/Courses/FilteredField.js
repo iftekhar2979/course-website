@@ -15,7 +15,7 @@ const FilteredField = () => {
         </div>
         <div className='flex'>
             
-            {myLoader?.map((item,index)=><SingleCourse id={index} data={item}></SingleCourse>)}
+            {myLoader?.map((item,index)=><SingleCourse key={item.courseId} data={item}></SingleCourse>)}
         </div>
         </>
     );

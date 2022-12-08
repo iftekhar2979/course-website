@@ -5,15 +5,6 @@ import Toggle from './toggle/Toggle';
 
 const Navbar = () => {
   const {user,signOutProfile,setUser}=useContext(AuthContext)
-  // const handleSignOut=()=>{
-  //   signOutProfile()
-  //   .then(()=>{
-  //   })
-  //   .catch(error=>{
-  //     console.log(error);
-  //   })
-    
-  // }
   const handleLogOut=()=>{
     signOutProfile()
       .then(()=>{

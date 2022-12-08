@@ -53,7 +53,10 @@ const UserContext = ({ children }) => {
 
       return () => unsubscribe();
     });
+
   }, []);
+
+  
   const authObject = {
     createAccount,
     updateUserProfile,
@@ -64,7 +67,8 @@ const UserContext = ({ children }) => {
     signInProfile,
     signWithGithub,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    
   };
   return (
     <AuthContext.Provider value={authObject}>{children}</AuthContext.Provider>

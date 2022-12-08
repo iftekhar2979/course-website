@@ -6,11 +6,12 @@ import SectionsLogin from './SectionsLogin';
 
 const Login = () => {
  const {setUser,signInProfile}=useContext(AuthContext)
+//  console.log();
+
  const navigate=useNavigate()
  const location=useLocation()
  const from=location.state?.from?.pathname || '/'
- console.log(location);
- console.log(from);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form=e.target

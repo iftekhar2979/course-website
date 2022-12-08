@@ -10,8 +10,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <body className='bg-white dark:bg-black transition-all'>
+  
+      
+      <ThemeProvider>
         <main>
           <div className='absolute w-full right-0 top-0'>
             <UserContext>
@@ -21,8 +22,9 @@ root.render(
             </UserContext>
           </div>
         </main>
-      </body>
-    </ThemeProvider>
+        </ThemeProvider>
+ 
+    
   </React.StrictMode>
 );
 
