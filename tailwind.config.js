@@ -6,8 +6,8 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      'xsm':{'min':'420px','max':'639px'},
-      'sm': {'min': '640px', 'max': '767px'},
+      'xsm':{'min':'300px','max':'639px'},
+      'sm': {'min': '576px', 'max': '767px'},
       // => @media (min-width: 640px and max-width: 767px) { ... }
 
       'md': {'min': '768px', 'max': '1023px'},

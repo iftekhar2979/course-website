@@ -18,9 +18,9 @@ const Navbar = () => {
   };
   return (
     <div className='navbar shadow-md dark:bg-gray-600 dark:text-base-100 dark:shadow-white'>
-      <div className='navbar-start  m-auto '>
+      <div className='navbar-start   m-auto '>
         <div className='dropdown'>
-          <label tabIndex={0} className='btn btn-ghost lg:hidden'>
+          <label tabIndex={0} className='btn btn-ghost lg:hidden xl:hidden'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='h-5 w-5'
@@ -42,7 +42,7 @@ const Navbar = () => {
           >
             <li className='text-white-300 font-semibold dark:text-stone-300'>
               {' '}
-              <img src='../../../public/favicon.png' alt='' />
+              <img src='../../../public/favicon.png' alt='' className='' />
             </li>
             <li className='text-gray-100 font-semibold dark:text-stone-300'>
               <Link to='/'>Coding Home</Link>
@@ -65,16 +65,17 @@ const Navbar = () => {
             <li className='text-gray-100 font-semibold'>
               <Link to='/blog'>Blog</Link>
             </li>
+            <li><Toggle></Toggle></li>
           </ul>
         </div>
         <img
-          className='w-8'
+          className='w-8 xsm:hidden xsm:w-0'
           src='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/dev-512.png'
           alt=''
         />
         <Link
           to=''
-          className='btn btn-ghost text-emerald-600 normal-case text-xl dark:text-stone-300'
+          className='btn btn-ghost text-emerald-600 normal-case text-xl xsm:text-md xsm:p-0 dark:text-stone-300'
         >
           Coding Home
         </Link>
@@ -107,7 +108,7 @@ const Navbar = () => {
           <div>
             <Link to='/login'>
               {' '}
-              <button className='btn bg-emerald-600 font-semibold border-none mr-4'>
+              <button className='btn bg-emerald-600 font-semibold border-none mr-4 xsm:mr-1'>
                 Login
               </button>
             </Link>
@@ -123,7 +124,10 @@ const Navbar = () => {
           ) : (
             ''
           )}
+          <div className='xsm:w-0 xsm:hidden'>
           <Toggle></Toggle>
+
+          </div>
         </div>
       </div>
     </div>

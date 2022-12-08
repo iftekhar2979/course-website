@@ -12,7 +12,7 @@ const SingleCourse = ({data}) => {
   
   
   return (
-    <div className='card card-compact w-auto  m-2 bg-base-100 dark:bg-gray-600 dark:text-base-100 shadow-transparent border shadow-xl'>
+    <div className='card card-compact xsm:w-full w-auto  m-2 bg-base-100 dark:bg-gray-600 dark:text-base-100 shadow-transparent border shadow-xl'>
       <figure>
         <img src={image} alt={courseName} />
       </figure>
